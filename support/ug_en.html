@@ -1,0 +1,169 @@
+<style>
+div.main-container {
+    font-family: "Helvetica Neue";
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    color: #5a5a5a;
+    text-align: center;
+}
+
+h3.sub-title {
+  font-size: 16px;
+  color: #5a5a5a;
+  margin-top: 30px;
+}
+
+li {
+  margin: 10px 0 10px 0;
+  font-size: 14px;
+  color: #747474;
+}
+
+p {
+  font-size: 14;
+  color: #747474;
+}
+
+p.text-content {
+  line-height: 150%;
+}
+
+div.left-border {
+  border-left: 4px #5a5a5a solid;
+}
+
+div.example-block {
+  margin: 30px 0 30px 0;
+  background-color: #efefef;
+  padding: 30px;
+}
+
+div.example-block > p {
+  margin: 15px 0 0 0;
+}
+
+div.example-block > h4 {
+  margin:0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #747474;
+}
+
+img {
+  margin-top: 40;
+  max-width: 100%;
+}
+
+</style>
+<div class="main-container">
+  <h2>User Guide</h2>
+  <h3 class="sub-title">How Wingman works</h3>
+  <p class="text-content">
+    DJI provides developers with a Software Development Kit (DJI SDK), which allows Wingman to connect to DJI drones and perform functions such as automated following flight, and telemetry information collection.
+  </p>
+  <p class="text-content">
+    No Fly Zones (NFZ) are handled by the DJI SDK, At the moment, if a user tries to take off within a no fly zone, the DJI SDK will fail when it tries to takeoff.
+  </p>
+  <p class="text-content">
+    In the common flight (Without auto-follow be activated), Wingman listens telemetry, and provides no any instruction to the drone flight.Thus, if the drone misbehaves in any way during flight (e.g. lost control in mid air, sudden loss of power etc.), this is under the Flight Controller misbehaving, not the Wingman app.
+  </p>
+  <img src="resource/img_ug_1.jpg">
+  <div class="example-block">
+    <h4>Basic Flight HUD</h4>
+    <ol>
+      <li>Multipeer network setting panel enterance (number of connected peers)</li>
+      <li>Aircraft internal status panel enterance</li>
+      <li>App and aircraft setting panel enterance</li>
+      <li>Heading degree (north is 0°)</li>
+      <li>Horizontal Speed (m/s)</li>
+      <li>Altitude (m)</li>
+      <li>Vertical Speed (m/s)</li>
+      <li>Attitude Indicator </li>
+      <li>Distance between aircraft and home location</li>
+      <li>Min-Map / Radar-View switch panel</li>
+    </ol>
+  </div>
+
+  <img src="resource/img_ug_2.jpg">
+  <div class="example-block">
+    <h4>
+      Multipeer network setting panel
+    </h4>
+    <ol>
+      <li>Searching view enterance</li>
+      <li>Connected peers will show here</li>
+      <li>Your callsign</li>
+      <li>Your role (Leader / Follwer)</li>
+      <li>Network switch (on/off)</li>
+    </ol>
+  </div>
+  <p class="text-content">
+    Before start connecting with other peers, you shuold set callsign and role first. After switching on network could allow users to find and connect with each other.
+    Go to the searching view, select a peer and wait other agree to connect. All connected peers will appear beside the search button, user could select one as target to follow.
+    Wingman supports up to 4 peers interconnections, that allow multiple drones follow with a leader.
+  </p>
+  <img src="resource/img_ug_3.jpg">
+  <div class="example-block">
+    <h4>
+      Selecte peer as target
+    </h4>
+    <ol>
+      <li>Auto-follow switch (Auto-follow trial time left)</li>
+      <li>Distance between your aircraft and target aircraft (m)</li>
+      <li>Target Horizontal Speed (m/s)</li>
+      <li>Target Altitude (m)</li>
+      <li>Target Vertical Speed (m/s)</li>
+      <li>Target Indicator</li>
+      <li>Home location Indicator</li>
+    </ol>
+  </div>
+
+  <img src="resource/img_ug_4.jpg">
+  <div class="example-block">
+    <h4>
+      Engage Auto-follow
+    </h4>
+    <ol>
+      <li>Radar view</li>
+      <li>Target Indicator</li>
+      <li>Control Point Indicator</li>
+      <li>User Location Indicator</li>
+    </ol>
+  </div>
+  <p class="text-content">
+    When selelcted leader as target and activate the auto-follow, a control point shows up on radar-view to representes the destination of your aircraft.That user could move the stick to trim the control point to adjust the distance with target aircraft.
+  </p>
+  <h3 class="sub-title">How Auto-Follow works</h3>
+  <p class="text-content">
+    If auto-follow be activated succeed, According to leader's location, speed, altitude Wingman would send command continuously that makes follower maintain relative position with leader.
+  </p>
+  <div class="example-block left-border">
+    <h4>Example:</h4>
+    <p class="text-content">
+      Two aircrafts take off at same altitude, the leader climbs to 50m height, the follower climbs to 53m height.
+      then user activate auto-following, the position deviation with leader is north 5m, west 4m, height is 3m higher, leader start to move horizontally, follower also make same move direction, finally the north-south and west-east deviation would be keep the same as before, the altitude would not be changed. then the leader declines the height to 25m, the follower would declines the height to 28m.
+    </p>
+  </div>
+  <p class="text-content">
+    During the auto-following activating, user could manipulate the yaw stick to control the heading of aircraft but not affect behaves for auto-follow. Also user could control the pitch / roll / vertical throttle stick like common flight to adjust distance with leader.
+  </p>
+  <h3 class="sub-title">Safety Considerations</h3>
+  <p class="text-content">
+    Wingman make as much protections as possible for avoiding accident occur duration the auto-follow flight. Leader or follower whoever got weak satellite signal, auto-follow would be terminated. If the follower detect the leader got abnormal for velocity or acceleration, auto-follow would be terminated. Also if leader or follower lost its remote controller signal, the aircraft would execute the Auto-Go-home program the same as in DJI GO.
+  </p>
+  <p class="text-content" style="font-weight: 600; color: #5a5a5a;">
+    Because difference of performance on aircrafts, network delay, GPS locate deviation, barometric altitude deviation, ambient wind effect etc. The acting of follow could not fully synchronized within the flight formation, that require user need to be aware in flight:
+  </p>
+    <ul>
+      <li>Make sure the airspace is open enough for multiple drones flight safely. And the field got good satellite signal covered is required.
+      <li>Setting a minimum auto-follow height (-100m ~ 100m), in case the leader make follower declines below safety altitude that need terminate auto-follow to avoid accident.
+      <li>Take off, climbs upon to the minimum auto-follow height before activate auto-follow. Inactivate auto-follow before landing your aircraft.
+      <li>Make appropriate position to activated the auto-follow. the distance should larger than 10m. And do not make the position on the axis of other's movement direction. If leader go horizontally the follower should have height deviation with it. If leader climbs vertically, the follower should not directly above on it nearly.
+      <li>Remember the movement of leader would affect on following drones, keep a safety distance with other aircrafts. Avoid violent acceleration and deceleration.
+      <li>Use the flight-mode switcher on remote controller could terminate auto-follow immediately and take manual control over the drone.
+    </ul>
+</div>
