@@ -139,7 +139,7 @@ img {
   </p>
   <h3 class="sub-title">How Auto-Follow works</h3>
   <p class="text-content">
-    If auto-follow be activated succeed, According to leader's location, speed, altitude Wingman would send command continuously that makes follower maintain relative position with leader.
+    If auto-follow be activated succeed, According to leader's location, speed, altitude the app would send command continuously that makes follower maintain relative position with leader.
   </p>
   <div class="example-block left-border">
     <h4>Example:</h4>
@@ -149,11 +149,20 @@ img {
     </p>
   </div>
   <p class="text-content">
-    During the auto-following activating, user could manipulate the yaw stick to control the heading of aircraft but not affect behaves for auto-follow. Also user could control the pitch / roll / vertical throttle stick like common flight to adjust distance with leader.
+    During the auto-following activating, user could manipulate the yaw stick to control the heading of aircraft but not affect behaves for auto-follow movement. Also user could control the pitch / roll / vertical throttle stick to trim the control point to adjust the distance with target aircraft.
   </p>
   <h3 class="sub-title">Safety Considerations</h3>
   <p class="text-content">
-    Wingman make as much protections as possible for avoiding accident occur duration the auto-follow flight. Leader or follower whoever got weak satellite signal, auto-follow would be terminated. If the follower detect the leader got abnormal for velocity or acceleration, auto-follow would be terminated. Also if leader or follower lost its remote controller signal, the aircraft would execute the Auto-Go-home program the same as in DJI GO.
+    Wingman make as much protection as possible for avoiding accident occurs duration the auto-follow flight. In below states the auto-follow would terminated by app:
+  </p>
+  <ol>
+    <li>Leader or follower gets weak or losts satellite signal.
+    <li>Leader or follower losts its remote controller signal.
+    <li>Leader gets abnormal for velocity or acceleration.
+    <li>Follower below the auto-follow minimum altitude.
+  </ol>
+  <p class="text-content">
+    If leader or follower lost its remote controller signal, the aircraft would execute the Auto-Go-Home program the same as in DJI GO.
   </p>
   <p class="text-content" style="font-weight: 600; color: #5a5a5a;">
     Because difference of performance on aircrafts, network delay, GPS locate deviation, barometric altitude deviation, ambient wind effect etc. The acting of follow could not fully synchronized within the flight formation, that require user need to be aware in flight:
