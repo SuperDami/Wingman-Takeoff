@@ -139,7 +139,7 @@ img {
   </p>
   <h3 class="sub-title">How Auto-Follow works</h3>
   <p class="text-content">
-    If auto-follow be activated succeed, According to leader's location, speed, altitude the app would send command continuously that makes follower maintain relative position with leader.
+    If auto-follow be activated succeed, the Flight-Mode of follower would become Joystick-Mode that allow to receive the flight command directly from APP. According to leader's location, speed, altitude the app would send command continuously that makes follower maintain relative position with leader.
   </p>
   <div class="example-block left-border">
     <h4>Example:</h4>
@@ -160,12 +160,16 @@ img {
     <li>Leader or follower losts its remote controller signal.
     <li>Leader gets abnormal for velocity or acceleration.
     <li>Follower below the auto-follow minimum altitude.
+    <li>APP be closed by user.
   </ol>
+  <p class="text-content" style="font-weight: 600; color: #5a5a5a;">
+    ✳ When APP is closed abnormally by system,the Joystick-Mode may not terminated by app at that time, that require user switch the Flight-Mode switcher on remote controller to exit Joystick-Mode directly to take over control.
+  </p>
   <p class="text-content">
     If leader or follower lost its remote controller signal, the aircraft would execute the Auto-Go-Home program the same as in DJI GO.
   </p>
   <p class="text-content" style="font-weight: 600; color: #5a5a5a;">
-    Because difference of performance on aircrafts, network delay, GPS locate deviation, barometric altitude deviation, ambient wind effect etc. The acting of follow could not fully synchronized within the flight formation, that require user need to be aware in flight:
+    ✳ Because difference of performance on aircrafts, network delay, GPS locate deviation, barometric altitude deviation, ambient wind effect etc. The acting of follow could not fully synchronized within the flight formation, that require user need to be aware in flight:
   </p>
     <ul>
       <li>Make sure the airspace is open enough for multiple drones flight safely. And the field got good satellite signal covered is required.
@@ -173,6 +177,6 @@ img {
       <li>Take off, climbs upon to the minimum auto-follow height before activate auto-follow. Inactivate auto-follow before landing your aircraft.
       <li>Make appropriate position to activated the auto-follow. the distance should larger than 10m. And do not make the position on the axis of other's movement direction. If leader go horizontally the follower should have height deviation with it. If leader climbs vertically, the follower should not directly above on it nearly.
       <li>Remember the movement of leader would affect on following drones, keep a safety distance with other aircrafts. Avoid violent acceleration and deceleration.
-      <li>Use the flight-mode switcher on remote controller could terminate auto-follow immediately and take manual control over the drone.
+      <li>Use the flight-mode switcher on remote controller could terminate auto-follow immediately and take over full control.
     </ul>
 </div>
