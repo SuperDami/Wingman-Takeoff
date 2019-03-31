@@ -1,0 +1,182 @@
+<style>
+div.main-container {
+    font-family: "Helvetica Neue";
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h2 {
+    color: #5a5a5a;
+    text-align: center;
+}
+
+h3.sub-title {
+  font-size: 16px;
+  color: #5a5a5a;
+  margin-top: 30px;
+}
+
+li {
+  margin: 10px 0 10px 0;
+  font-size: 14px;
+  color: #747474;
+}
+
+p {
+  font-size: 14;
+  color: #747474;
+}
+
+p.text-content {
+  line-height: 150%;
+}
+
+div.left-border {
+  border-left: 4px #5a5a5a solid;
+}
+
+div.example-block {
+  margin: 30px 0 30px 0;
+  background-color: #efefef;
+  padding: 30px;
+}
+
+div.example-block > p {
+  margin: 15px 0 0 0;
+}
+
+div.example-block > h4 {
+  margin:0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #747474;
+}
+
+img {
+  margin-top: 40;
+  max-width: 100%;
+}
+
+</style>
+<head>
+  <meta charset="UTF-8">
+</head>
+<div class="main-container">
+  <h2>ユーザーマニュアル</h2>
+  <h3 class="sub-title">Wingmanはどのように機能を実現しますか</h3>
+  <p class="text-content">
+    DJIはソフトウェア開発キットを提供しますから、サードパーティのアプリがDJIのドローンに接続し、ドローンの状態をキャプチャし、さらにドローンの飛行を制御することを可能にする。
+  </p>
+  <p class="text-content">
+    飛行禁止区域に関連する動作はDJI SDKによって制御され、ユーザーが飛行禁止区域で離陸しようとしても、DJI SDKはドローンの動作を制限します。
+  </p>
+  <img src="../resource/img_ug_1.jpg">
+  <div class="example-block">
+    <h4>基本飛行インターフェース</h4>
+    <ol>
+      <li>P2Pネットワーク接続設定を開く（接続機器数）</li>
+      <li>ドローン詳細状況情報パネルを開く</li>
+      <li>メインメニュー画面</li>
+      <li>方位角 (0度は北です)</li>
+      <li>水平速度値 (m/s)</li>
+      <li>高度値 (m)</li>
+      <li>垂直速度値 (m/s)</li>
+      <li>姿勢指示器 </li>
+      <li>ドローンとホームポイント間の距離</li>
+      <li>ミニマップ/レーダー画面切替</li>
+    </ol>
+  </div>
+
+  <img src="../resource/img_ug_2.jpg">
+  <div class="example-block">
+    <h4>
+      P2Pネットワーク接続設定
+    </h4>
+    <ol>
+      <li>近くのデバイスを検索と接続する</li>
+      <li>接続されているデバイス</li>
+      <li>コールサイン設定</li>
+      <li>ロール設定 (長機/僚機)</li>
+      <li>ネットワークスイッチ (オン/オフ)</li>
+    </ol>
+  </div>
+  <p class="text-content">
+    他のデバイスへの接続を開始する前に、コールサインと役割を設定する必要がある、P-To-Pネットワークをオンにした後、周りの他のデバイスを検索して接続することができます。検索接続画面に進み、デバイスを選択し、相手が接続に同意するのを待ちます。 完了したら、前の設定ネルに戻ると、接続されているデバイスが表示されます。 そして、ユーザは追跡対象として一つを選択する。Wingmanは最大4つのデバイスを接続して複数の僚機編隊するを実現します。
+  </p>
+  <img src="../resource/img_ug_3.jpg">
+  <div class="example-block">
+    <h4>
+      デバイスを追跡ターゲットとして選択した
+    </h4>
+    <ol>
+      <li>自動追従スイッチ (下は自動追跡利用可能な燃料を示する)</li>
+      <li>あなたのドローンと目標ドローンの間の距離 (m)</li>
+      <li>目標ドローン水平速度値 (m/s)</li>
+      <li>目標ドローン高度値 (m)</li>
+      <li>目標ドローン垂直速度 (m/s)</li>
+      <li>目標ドローン位置指示</li>
+      <li>ホームポイント位置指示</li>
+    </ol>
+  </div>
+
+  <img src="../resource/img_ug_4.jpg">
+  <div class="example-block">
+    <h4>
+      自動追従を有効にする
+    </h4>
+    <ol>
+      <li>レーダー画面</li>
+      <li>目標ドローン位置指示</li>
+      <li>自動追従制御点</li>
+      <li>ユーザー（リモコン）位置指示</li>
+    </ol>
+  </div>
+  <h3 class="sub-title">どのように自動追従は機能しますか</h3>
+  <p class="text-content">
+    自動追従に有効すると、ドローンのモードが「Joystick」モードに変わり、ドローンはアプリから運動コマンドを受ける。これらのコマンドは、ドローンと長機の位置、速度、高度、距離によって決定されます。これで長機と固定相対位置を達成して。自動追従が有効になっていると、ユーザーは機首方位（YAW）を調整でき、自動追従の機動には影響しません。同時に、ドローンの姿勢のピッチ／ロール方向または垂直方向を制御して、長機との相対位置をあらゆる方向に調整することもできる。
+    自動追従制御点がレーダースクリーンに表示され、あなたのドローンは常に制御点に接近しようとします。同時に、ユーザーはジョイスティックを使って制御点の位置を変更し、これで長機との相対位置や距離を調整したりできます。
+  </p>
+  <div class="example-block left-border">
+    <h4>ユースケース:</h4>
+    <p class="text-content">
+      2機が同じ高度で離陸し、長機は50mまで上昇し、僚機は53mまで上昇しましたユーザーが自動追跡を有効にしたとき、僚機は長機との距離より北5m、西4m、上3mでした。 長機が水平方向に動き始めると、僚機も同じ方向に移動し、長機との間の相対偏差は変わりません。長機が25mの高さまで下がると、僚機は28mになります。
+    </p>
+  </div>
+  <p class="text-content">
+  </p>
+  <h3 class="sub-title">安全性に関する事項</h3>
+  <p class="text-content">
+    Wingmanは自動飛行中に事故が発生しないように特定の保護措置を講じています。次のような状況になると自動追従は中止されます。
+  </p>
+  <ol>
+    <li>長機または僚機の衛星信号受信不良
+    <li>長機または僚機のリモコン信号受信中断
+    <li>長機運動状態が異常な値があります
+    <li>僚機が自動追従高度の下限設定より低い
+    <li>アプリはユーザーがシャットダウンされてます
+  </ol>
+  <p class="text-content" style="font-weight: 600; color: #5a5a5a;">
+    ✳ アプリがシステムによって異常にシャットダウンされた場合、自動追従「Joystick」モードはAPPによって閉じられない可能性があり。このときドローンは現在の位置に留まり、ユーザはリモコンのフライトモードレバーを切り替えて「ジョイスティック」モードを終了して、 リモコンの制御を引き継ぐ。
+  </p>
+  <p class="text-content" style="font-weight: 600; color: #5a5a5a;">
+    ✳ ドローンがリモートコントロール接続信号中断うと、DJI GOと同じ自動復帰機能を実行します。
+  </p>
+  <p class="text-content" style="font-weight: 600; color: #5a5a5a;">
+    ✳ 異なるドローンモデルの運動性能相違がある、ネットワーク遅延、GPS誤差、気圧計誤差、周囲の風の影響のため、僚機の自動追従運動反応は長機と完全に同期することがありません。飛行中に以下の点に注意してください；
+  </p>
+    <ul>
+      <li>ユーザーはDJIドローンの基本操作に精通している必要があります。
+      <li>良い衛星信号があり、障害物がなく、他人の個人や財産の安全に影響を与えずに、空きスペースで使用してください。
+      <li>僚機の最小安全高さを設定してください。 長機を追いかけているとき、地面との衝突を避けるため僚機は設定された高さを下回りません。
+      <li>僚機に最低安全高度を上回った後、自動追従をオンにすることを許可します。
+      <li>長機との相対位置は近すぎてはいけません、直線距離は少なくとも10 mより長く、長機の運動状態の突然の変化を避けるために同じ水平面または移動方向の軸上で衝突を避けます。
+      <li>長機の運動は常に僚機に影響を及ぼし、他のドローンから安全な距離を保ち、そして激しい加速と減速を回避する。
+      <li>ユーザーは、アプリインターフェースのボタンを押すか、またはリモコンのフライトモードを切り替えることで、自動追従機能を停止します。
+      <li>自動追従を使用する場合は、常に機体の動きに注意してください、危険な状況がある場合は、直ちに自動追従を中断してください。
+    </ul>
+    <h3 class="sub-title">フィードバック</h3>
+    <p class="text-content">
+      アプリについての質問や提案があるは、お気軽にお問い合わせください。Email:<a title="mailto:dronewingman.app@gmail.com?subject=" href="mailto:dronewingman.app@gmail.com?subject=" style="font-size: 14;">dronewingman.app@gmail.com</a>
+    </p>
+</div>
